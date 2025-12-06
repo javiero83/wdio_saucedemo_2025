@@ -17,6 +17,7 @@
         "noEmit": true,
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
+        "esModuleInterop": true,
         "isolatedModules": true,
         "strict": true,
         "noUnusedLocals": true,
@@ -26,5 +27,5 @@
     "include": [
         "test",
         "wdio.conf.ts"
-    ]
+, "pageobjects", "test/login.test.ts"    ]
 }
