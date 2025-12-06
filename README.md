@@ -323,3 +323,248 @@ git push -u origin feature/nombre
 ```bash
 git branch -d feature/nombre
 ```
+
+---
+
+## 🖥️ 13. Cómo clonar el proyecto en un ambiente local nuevo
+
+Cuando necesites configurar el proyecto en una nueva computadora o entorno, sigue estos pasos:
+
+### 1️⃣ Clonar el repositorio desde GitHub
+
+```bash
+git clone https://github.com/javiero83/wdio_saucedemo_2025.git
+```
+
+### 2️⃣ Entrar al directorio del proyecto
+
+```bash
+cd wdio_saucedemo_2025
+```
+
+### 3️⃣ Ver las ramas disponibles
+
+```bash
+git branch -a
+```
+
+### 4️⃣ Cambiarte a la rama `dev` (o la que necesites)
+
+```bash
+git checkout dev
+```
+
+Si la rama aún no existe localmente pero sí en GitHub:
+
+```bash
+git checkout -b dev origin/dev
+```
+
+### 5️⃣ Instalar dependencias del proyecto (muy importante)
+
+Si es un proyecto WDIO con NPM:
+
+```bash
+npm install
+```
+
+Esto descargará todas las dependencias necesarias para correr las pruebas.
+
+### 6️⃣ Probar que WDIO funciona correctamente
+
+```bash
+npx wdio run wdio.conf.js
+```
+
+### 7️⃣ Mantener el proyecto actualizado
+
+Cada vez que vayas a trabajar:
+
+```bash
+git pull
+```
+
+Esto asegurará que tu entorno esté sincronizado con GitHub.
+
+---
+
+## 🧯 14. Si el proyecto cambia de configuración (ej: nueva rama main o dev)
+
+Si clonas el proyecto y quieres asegurarte de estar alineado con las ramas remotas:
+
+```bash
+git fetch --all
+```
+
+Esto actualiza todas las referencias del repositorio remoto.
+
+Luego puedes cambiar a cualquier rama remota:
+
+```bash
+git checkout nombre_rama
+```
+
+---
+
+## 🚀 15. Comandos útiles al iniciar en un ambiente nuevo
+
+### Verificar qué rama estás usando
+
+```bash
+git status
+```
+
+### Ver ramas remotas
+
+```bash
+git branch -r
+```
+
+### Descargar todos los cambios del remoto sin hacer merge
+
+```bash
+git fetch
+```
+
+### Crear una rama local basada en una remota
+
+```bash
+git checkout -b local_branch origin/remote_branch
+```
+
+---
+
+Si quieres, puedo agregar una sección **"Checklist de instalación rápida"** en formato corto para que puedas copiar/pegar al iniciar en una máquina nueva.
+
+---
+
+## 📋 16. Checklist de instalación rápida (ambiente nuevo)
+
+Para que no se te olvide nada cuando configures el proyecto en una nueva máquina:
+
+```
+1. git clone https://github.com/javiero83/wdio_saucedemo_2025.git
+2. cd wdio_saucedemo_2025
+3. git checkout dev
+4. npm install
+5. Verificar wdio.conf.js existe
+6. Configurar credenciales o variables si aplica
+7. Ejecutar: npx wdio run wdio.conf.js
+8. Revisar que los tests corren sin errores
+9. git pull (mantener dev actualizada)
+10. Crear feature branch si vas a empezar trabajo
+```
+
+---
+
+## 🛠️ 17. Configuración recomendada de VS Code para WDIO
+
+Estas extensiones ayudan a trabajar más rápido y evitar errores:
+
+### 🔹 Extensiones recomendadas
+
+* **ESLint** → ayuda a mantener código limpio
+* **Prettier** → formato automático
+* **JavaScript and TypeScript Nightly** → mejor soporte TS
+* **GitLens** → ver historial, blame, y PRs
+* **DotENV** → resalta archivos `.env`
+* **npm Intellisense** → autocompleta imports de node_modules
+
+### 🔹 Ajustes sugeridos en VS Code
+
+En *Settings → JSON* agrega:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always"
+}
+```
+
+---
+
+## 🔐 18. Uso de variables de entorno (.env)
+
+Si en algún momento el proyecto requiere credenciales:
+
+### 1️⃣ Crear un archivo `.env` en la raíz
+
+```
+API_KEY=tu_clave
+OTRO_VALOR=123
+```
+
+### 2️⃣ Instalar dotenv (si es necesario)
+
+```bash
+npm install dotenv
+```
+
+### 3️⃣ Cargar variables en WDIO (ejemplo)
+
+En `wdio.conf.js`:
+
+```js
+require('dotenv').config();
+```
+
+Ahora puedes usar:
+
+```js
+process.env.API_KEY
+```
+
+---
+
+## ⚠️ 19. Errores comunes al clonar y cómo resolverlos
+
+### ❌ Error: `command not found wdio`
+
+Solución:
+
+```bash
+npm install
+```
+
+WDIO está en node_modules.
+
+---
+
+### ❌ Error: `failed to push some refs`
+
+Sucede cuando tu rama local no coincide con la remota.
+Solución:
+
+```bash
+git pull --rebase
+git push
+```
+
+---
+
+### ❌ Error: `package-lock.json mismatch` después de clonar
+
+Solución:
+
+```bash
+rm -rf node_modules
+npm install
+```
+
+---
+
+### ❌ WDIO no corre: `config not found`
+
+Verifica que existe:
+
+```
+wdio.conf.js
+```
+
+O ejecuta:
+
+```bash
+npx wdio config
+```
