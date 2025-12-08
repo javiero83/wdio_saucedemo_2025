@@ -1,14 +1,16 @@
 import LoginPage from "../pageobjects/login.page";
-import users from "../data/users.json";
+import {users} from "../data/users";
+import {messages} from '../data/messages';
+import {inventory} from '../data/inventory';
 
 describe('Login Page Suite', ()=>{
 
 
     it('Validate valid Login', async()=>{
         await LoginPage.open();
-        await LoginPage.login(users.validUser.username,users.validUser.password);
+        await LoginPage.login(users.validUser.username, users.validUser.password);
 
-        expect(await $('.app_logo').getText()).toEqual('Swag Labs');
+        expect(await $('.app_logo').getText()).toEqual(messages.inventory.logo);
     })
 
     it('Validate first product displayed', async()=>{
@@ -16,7 +18,7 @@ describe('Login Page Suite', ()=>{
         await LoginPage.login(users.validUser.username, users.validUser.password);
 
         const itemName = (await $$('.inventory_item_name'))[0];
-        expect(await itemName.getText()).toEqual('Sauce Labs Backpack')
+        expect(await itemName.getText()).toEqual(inventory.items[0].name)
 
     })
 
@@ -31,10 +33,10 @@ describe('Login Page Suite', ()=>{
         await LoginPage.open();
         await LoginPage.login(users.validUser.username, users.validUser.password);
 
-        const itemAddbtn = await $('//button[@name="add-to-cart-sauce-labs-backpack"]');
+        const itemAddbtn = await $(`//button[@name="${inventory.items[0].addButton}"]`);
         await itemAddbtn.click()
 
-        expect(await $('//button[@name="remove-sauce-labs-backpack"]').getText()).toEqual('Remove');
+        expect(await $(`//button[@name="${inventory.items[0].removeButton}"]`).getText()).toEqual('Remove');
 
     })
 }
