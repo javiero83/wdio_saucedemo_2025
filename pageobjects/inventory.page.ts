@@ -3,6 +3,7 @@ import { inventory } from "../data/inventory";
 
 class InventoryPage extends Page {
 
+
     get inventoryItemNames(){
         return $$('.inventory_item_name');
     }
@@ -35,6 +36,11 @@ class InventoryPage extends Page {
         const btn = await this.getRemoveButton(index);
         await btn.click();
     }
+    
 }
 
 export default new InventoryPage();
+
+    
+
+
