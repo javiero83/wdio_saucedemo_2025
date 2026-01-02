@@ -1,0 +1,107 @@
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <title>A11y Audit – Login</title>
+        <style>
+          body { font-family: Arial, sans-serif; }
+          table { border-collapse: collapse; width: 100%; }
+          th { background: #333; color: #fff; }
+          td, th { border: 1px solid #ccc; padding: 8px; }
+          .critical { background: #ffcccc; }
+          .serious { background: #ffd9cc; }
+          .moderate { background: #fff4cc; }
+          .minor { background: #eef7ff; }
+          code { font-size: 12px; }
+        </style>
+      </head>
+      <body>
+        <h2>Accessibility Audit – Login</h2>
+        <p>Total issues found: <strong>6</strong></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Problem</th>
+              <th>Rule</th>
+              <th>Impact</th>
+              <th>Location (CSS)</th>
+              <th>Suggested Fix</th>
+              <th>Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr class="moderate">
+                <td>1</td>
+                <td>Ensure the document has a main landmark</td>
+                <td><code>landmark-one-main</code></td>
+                <td>moderate</td>
+                <td><code>html</code></td>
+                <td>Fix all of the following:
+  Document does not have a main landmark</td>
+                <td><a href="https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=webdriverio" target="_blank">Deque docs</a></td>
+              </tr>
+            
+              <tr class="moderate">
+                <td>2</td>
+                <td>Ensure that the page, or at least one of its frames contains a level-one heading</td>
+                <td><code>page-has-heading-one</code></td>
+                <td>moderate</td>
+                <td><code>html</code></td>
+                <td>Fix all of the following:
+  Page must have a level-one heading</td>
+                <td><a href="https://dequeuniversity.com/rules/axe/4.11/page-has-heading-one?application=webdriverio" target="_blank">Deque docs</a></td>
+              </tr>
+            
+              <tr class="moderate">
+                <td>3</td>
+                <td>Ensure all page content is contained by landmarks</td>
+                <td><code>region</code></td>
+                <td>moderate</td>
+                <td><code>.login_logo</code></td>
+                <td>Fix any of the following:
+  Some page content is not contained by landmarks</td>
+                <td><a href="https://dequeuniversity.com/rules/axe/4.11/region?application=webdriverio" target="_blank">Deque docs</a></td>
+              </tr>
+            
+              <tr class="moderate">
+                <td>4</td>
+                <td>Ensure all page content is contained by landmarks</td>
+                <td><code>region</code></td>
+                <td>moderate</td>
+                <td><code>.form_group:nth-child(1)</code></td>
+                <td>Fix any of the following:
+  Some page content is not contained by landmarks</td>
+                <td><a href="https://dequeuniversity.com/rules/axe/4.11/region?application=webdriverio" target="_blank">Deque docs</a></td>
+              </tr>
+            
+              <tr class="moderate">
+                <td>5</td>
+                <td>Ensure all page content is contained by landmarks</td>
+                <td><code>region</code></td>
+                <td>moderate</td>
+                <td><code>.form_group:nth-child(2)</code></td>
+                <td>Fix any of the following:
+  Some page content is not contained by landmarks</td>
+                <td><a href="https://dequeuniversity.com/rules/axe/4.11/region?application=webdriverio" target="_blank">Deque docs</a></td>
+              </tr>
+            
+              <tr class="moderate">
+                <td>6</td>
+                <td>Ensure all page content is contained by landmarks</td>
+                <td><code>region</code></td>
+                <td>moderate</td>
+                <td><code>.login_credentials_wrap</code></td>
+                <td>Fix any of the following:
+  Some page content is not contained by landmarks</td>
+                <td><a href="https://dequeuniversity.com/rules/axe/4.11/region?application=webdriverio" target="_blank">Deque docs</a></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </body>
+    </html>
+  

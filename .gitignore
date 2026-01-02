@@ -1,1 +1,13 @@
-node_modules
+# Node
+node_modules/
+
+# WDIO
+.log
+wdio.log
+
+# Allure
+allure-results/
+allure-report/
+
+# OS
+.DS_Store
