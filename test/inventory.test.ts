@@ -1,7 +1,7 @@
 import loginPage from "../pageobjects/login.page";
 import inventoryPage from "../pageobjects/inventory.page";
 import { users } from "../data/users";
-import { inventory } from "../data/inventory";
+//import { inventory } from "../data/inventory";
 
 
 describe('Inventory Suite', ()=>{
