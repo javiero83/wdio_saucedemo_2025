@@ -6,7 +6,10 @@
     "test": "npx wdio run wdio.conf.ts",
     "wdio": "wdio run ./wdio.conf.ts",
     "test:report": "wdio run wdio.conf.ts && allure generate allure-results --clean && allure open",
-    "report": "allure generate allure-results --clean && allure open"
+    "report": "allure generate allure-results --clean && allure open",
+    "test:headless": "HEADLESS=true wdio run wdio.conf.ts",
+    "test:headless:a11y": "HEADLESS=true wdio run wdio.conf.ts --spec test/a11y/login.a11y.test.ts",
+    "test:headless:report": "cross-env HEADLESS=true wdio run wdio.conf.ts && allure generate allure-results --clean && allure open"
   },
   "author": "JROA",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "@wdio/mocha-framework": "^9.21.0",
     "@wdio/spec-reporter": "^9.20.0",
     "allure-commandline": "^2.36.0",
+    "axe-html-reporter": "^2.2.11",
     "expect-webdriverio": "^5.5.0"
   }
 }

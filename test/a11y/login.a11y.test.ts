@@ -1,4 +1,4 @@
-import LoginPage from '../pageobjects/login.page';
+import LoginPage from '../../pageobjects/login.page';
 import allureReport from '@wdio/allure-reporter';
 import { browser } from '@wdio/globals';
 import AxeBuilder from '@axe-core/webdriverio';

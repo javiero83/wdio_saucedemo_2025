@@ -1,3 +1,5 @@
+const isHeadless = process.env.HEADLESS === 'true';
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
@@ -51,8 +53,16 @@ export const config: WebdriverIO.Config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
+    
+
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome', 
+        'goog:chromeOptions':{
+            args:[
+                '--window-size=1920,1080',
+                ...(isHeadless ? ['--headless=new']:[])
+            ]
+        }
     }],
 
     //

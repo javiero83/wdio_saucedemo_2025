@@ -1,7 +1,7 @@
-import LoginPage from "../pageobjects/login.page";
-import {users} from "../data/users";
-import {messages} from '../data/messages';
-import {inventory} from '../data/inventory';
+import LoginPage from "../../pageobjects/login.page";
+import {users} from "../../data/users";
+import {messages} from '../../data/messages';
+import {inventory} from '../../data/inventory';
 import allureReport from '@wdio/allure-reporter';
 
 describe('Login Page Suite', ()=>{
